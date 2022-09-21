@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exclusão de Estudantes</title>
+    <title>Estudantes</title>
 
     <style>
         body {
@@ -60,18 +60,33 @@
     <?php
         require_once './dao/DaoStudent.php';
         require_once './model/Student.php';
-        
-        $id = filter_input(INPUT_GET, 'id');
-        $dao = new DaoStudent();
-        $list = $dao->localiza($id);
 
-        $student = $list[0];
+        $value = filter_input(INPUT_GET, 'value');
+        
+        switch($value) {
+            case 1:
+                $title = 'Cadastro de Estudantes';
+                $action = 'cadastroEstudante.php';
+                $student['id'] = '';
+                $student['name'] = '';
+                $student['ra'] = '';
+                break;
+            case 2:
+                $title = 'Edição de Estudantes';
+                $action = 'edicaoEstudante.php';
+
+                $id = filter_input(INPUT_GET, 'id');
+                $dao = new DaoStudent();
+                $list = $dao->localiza($id);
+                $student = $list[0];
+                break;
+        }
     ?>
 
-    <h1>Edição de Estudante</h1>
+    <h1><?=$title?></h1>
 
     <div id="form">
-        <form action="edicaoEstudante.php" method="POST">
+        <form action="IncluiEdita.php" method="POST">
             <label for="student_id">ID: </label>
             <input type="hidden" name="student_id" value="<?= $student['id'] ?>">
             <label for="student_name">Nome: </label>
@@ -79,7 +94,7 @@
     
             <label for="student_ra">RA: </label>
             <input type="text" name="student_ra" id="student_ra" value="<?= $student['ra'] ?>" required><br><br>
-    
+            <input type="hidden" name="value" value="<?=$value?>">
             <input type="submit" name="button-submit" value="Enviar dados">
         </form>
     </div>

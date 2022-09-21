@@ -91,6 +91,16 @@
         .delete-button:hover {
             background-color: #CCC;
         }
+
+        #edit-student {
+            text-decoration: none;
+            color: #000;
+        }
+
+        #edit-student:hover {
+            color: #FFF;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -119,7 +129,7 @@
                         echo "<td>" . $value['name'] . "</td>";
                         echo "<td>" . $value['ra'] . "</td>";
                         echo '<td>
-                            <a href="formEdicaoEstudante.php?id=' . $value['id'] .'">Editar</a>
+                            <a id="edit-student" href="formPrincipal.php?id=' . $value['id'] .'&value=2">Editar</a>
                         </td>';
                         echo '<td>
                             <form action="excluiEstudante.php" method="POST">

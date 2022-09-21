@@ -36,10 +36,24 @@
     </style>
 </head>
 <body>
-    <h1>Cadastro de Estudante</h1>
+
+    <?php
+        $value = filter_input(INPUT_GET, 'value');
+        
+        switch($value) {
+            case 1:
+                $title = 'Cadastro de Estudantes';
+                $action = 'cadastroEstudante.php';
+            case 2:
+                $title = 'Edição de Estudantes';
+                $action = 'edicaoEstudante.php';
+        }
+    ?>
+
+    <h1><?=$title?></h1>
 
     <div id="form">
-        <form action="cadastroEstudante.php" method="POST">
+        <form action="<?=$action?>" method="POST">
             <label for="student_name">Nome: </label>
             <input type="text" name="student_name" id="student_ra" required>
     

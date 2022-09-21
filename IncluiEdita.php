@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status - Edição</title>
+    <title>Status</title>
 
     <style>
         body {
@@ -43,19 +43,36 @@
         require_once './model/Student.php';
         require_once './dao/DaoStudent.php';
 
+        $value = filter_input(INPUT_POST,  'value');
         $id = filter_input(INPUT_POST, 'student_id');
         $name = filter_input(INPUT_POST, 'student_name');
         $ra = filter_input(INPUT_POST, 'student_ra');
 
-        if($id && $name && $ra) {
-            $obj = new Student($id, $name, $ra);
-            $dao = new DaoStudent();
-
-            if($dao->updateStudent($obj)) echo '<p>Aluno atualizado com sucesso!</p>';
-            else echo '<p>Aluno não foi atualizado!</p>';
-
-        } else {
-            echo '<p>Dados ausentes ou incorretos!</p>';
+        switch($value) {
+           case 1:
+                if($name && $ra) {
+                    $obj = new Student(null, $name, $ra);
+                    $dao = new DaoStudent();
+        
+                    if($dao->insert($obj) > 0) echo '<p>Aluno inserido com sucesso!</p>';
+                    else echo '<p>Aluno não foi inserido!</p>';
+        
+                } else {
+                    echo '<p>Dados ausentes ou incorretos!</p>';
+                }
+            break;
+            case 2:
+                if($id && $name && $ra) {
+                    $obj = new Student($id, $name, $ra);
+                    $dao = new DaoStudent();
+        
+                    if($dao->updateStudent($obj)) echo '<p>Aluno atualizado com sucesso!</p>';
+                    else echo '<p>Aluno não foi atualizado!</p>';
+        
+                } else {
+                    echo '<p>Dados ausentes ou incorretos!</p>';
+                }
+            break;
         }
     ?>
 

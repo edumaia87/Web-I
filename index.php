@@ -81,7 +81,7 @@
         }*/
     ?>
 
-    <a id="register-student" href="formCadastroEstudante.php">Cadastrar aluno</a>
+    <a id="register-student" href="formPrincipal.php?value=1">Cadastrar aluno</a>
     <a id="register-teacher" href="formCadastroProfessor.php">Cadastrar professor</a>
     <a id="register-student" href="listagem.php">Listar Alunos e professores</a>
 
