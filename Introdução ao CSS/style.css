@@ -1,0 +1,23 @@
+body {
+    background: cornsilk;
+}
+.content {
+    margin: 0 auto;
+}
+
+h1 {
+    color: red;
+    color: #FF0;
+}
+
+.botaoTipo1 {
+    background: crimson;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.botaoTipo1:hover {
+    background: rgb(221, 52, 85);
+}
