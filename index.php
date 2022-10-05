@@ -50,6 +50,22 @@
     #register-teacher:hover {
         background-color: #DCDCDC;
     }
+
+    .buttons a {
+        display: block;
+
+    }
+
+    .botaoTipo1 {
+        display: block;
+        border: none;
+        background: brown;
+        color: #EDDDDD;
+    }
+
+    .botaoTipo1 button {
+        float: left;
+    }
 </style>
 
 <body>
@@ -81,10 +97,11 @@
         }*/
     ?>
 
-    <a id="register-student" href="formPrincipal.php?value=1">Cadastrar aluno</a>
-    <a id="register-teacher" href="formCadastroProfessor.php">Cadastrar professor</a>
-    <a id="register-student" href="listagem.php">Listar Alunos e professores</a>
-
+    <div class="buttons">
+        <a id="register-student" href="formPrincipal.php?value=1">Cadastrar aluno</a>
+        <a id="register-teacher" href="formCadastroProfessor.php">Cadastrar professor</a>
+        <a id="register-student" href="listagem.php">Listar Alunos e professores</a>
+    </div>
 </body>
 </html>
 

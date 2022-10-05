@@ -16,10 +16,10 @@
             border-collapse: collapse;
             width: 600px;
             margin-bottom: 20px; 
-            }
+        }
 
         table td, table th {
-            border: 2px solid #000;
+            border: 1px solid #000;
             padding: 5px;
             text-align: center;
         }
@@ -38,11 +38,29 @@
         }
 
         .students-table {
-            margin: 0 0 20px 380px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .teacher-table {
-            margin: 0 0 20px 380px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .teacher-table #back-button {
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            border: 1px solid transparent;
+            padding: 10px 15px;
+            background-color: #FFF;
+        }
+
+        #back-button:hover {
+            background-color: #DCDCDC;
         }
 
         #excluirAluno {
@@ -64,25 +82,6 @@
             cursor: pointer;
         }
 
-        .back-button {
-            display: inline;
-            border: 1px solid transparent;
-            padding: 10px 15px;
-            background-color: #FFF;
-
-            margin-left:650px;
-        }
-
-        .back-button:hover {
-            background-color: #DCDCDC;
-        }
-
-        .back-button a {
-            color: #000;
-            text-decoration: none;
-            font-weight: 700;
-        }
-
         .delete-button {
             text-decoration: none;
             color: #FFF;
@@ -101,9 +100,56 @@
             color: #FFF;
             cursor: pointer;
         }
+
+        #acoes {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+        }
+
+        li {
+            padding: 5px;
+        }
+
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        .teste {
+            width: 50%;
+        }
     </style>
 </head>
 <body>
+
+    <header>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Loja</li>
+                <li>Sobre</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="teste">Div 01</div>
+        <div class="teste">Div 02</div>
+        <div class="teste">Div 03</div>
+        <div class="teste">Div 04</div>
+    </main>
     <div class="students-table">
         <table>
         <caption>Lista de alunos</caption>
@@ -118,7 +164,6 @@
                 <th>Nome</th>
                 <th>RA</th>
                 <th>Ações</th>
-                <th>Ações</th>
             </tr>
     
             <tr>
@@ -128,10 +173,8 @@
                         echo "<td>" . $value['id'] . "</td>";
                         echo "<td>" . $value['name'] . "</td>";
                         echo "<td>" . $value['ra'] . "</td>";
-                        echo '<td>
+                        echo '<td id="acoes">
                             <a id="edit-student" href="formPrincipal.php?id=' . $value['id'] .'&value=2">Editar</a>
-                        </td>';
-                        echo '<td>
                             <form action="excluiEstudante.php" method="POST">
                                 <input type="hidden" name="id" value="' . $value['id'] . '">
                                 <input type="submit" id="excluirAluno" value="Excluir">
@@ -176,10 +219,8 @@
                 ?>
             </tr>
         </table>
-    </div>
 
-    <div class="back-button">
-        <a href="index.php">Voltar</a>
+        <a id="back-button" href="index.php">Voltar</a>
     </div>
 </body>
 </html>
