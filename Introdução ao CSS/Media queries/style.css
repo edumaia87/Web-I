@@ -35,18 +35,22 @@ html {
     .space {
         display: block;
         margin: 20px auto;
-        height: 60vh;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        height: 70%;
     } 
     
+    .images {
+        padding: 0.5rem 0;
+        width: 80%;
+        margin: 0 auto;
+    }
+
     .content {
-        width: 10rem;
-        height: 6rem;
+        width: 90%;
+        height: 20%;
     }
 }
 
-@media screen and (min-width: 501px) and (max-width: 1200px) {
+@media screen and (min-width: 501px) and (max-width: 900px) {
     .space {
         padding-left: 1rem;
         padding-right: 1rem;
@@ -63,10 +67,15 @@ html {
     }
 }
 
-@media screen and (min-width: 1201px) {
+@media screen and (min-width: 900px) {
     .space {
         padding-left: 1rem;
         padding-right: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .images {
+        width: 25%;
     }
 
     .content {
