@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 02</title>
+
+    <script>
+        window.addEventListener('load', () => {
+            document.querySelector('button').addEventListener('click', () => {
+                let ps = document.querySelectorAll('p')
+                for (let i = 0; i < ps.length; i++) {
+                    ps[i].style.color = '#F0F'  
+                }
+
+                let img = document.images[0]
+                img.setAttribute('src', 'https://play-lh.googleusercontent.com/uhwLDyRPKS8__hZPX-8OmVX0BFV_CBh9GKwZNQREKPuQk9xVPznce_UqIJINz0kfULo')
+            })   
+        })
+    </script>
+</head>
+<body>
+    <h1>Aula 02</h1>
+    <p>P1</p>
+    <p>P2</p>
+    <p>P3</p>
+    <p>P4</p>
+    <p>P5</p>
+    <img style="width: 200px; height: 200px; border: 1px solid transparent; border-radius: 10%;" src="https://i.pinimg.com/736x/db/d8/77/dbd87797601ecc8821066dbfd5be8b5a.jpg">
+    <br>
+    <button>Mudar</button>
+</body>
+</html>
