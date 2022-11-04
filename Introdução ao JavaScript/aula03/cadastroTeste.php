@@ -1,4 +1,5 @@
 <?php
+
 $nome = filter_input(INPUT_POST, 'nome');
 $endereco = filter_input(INPUT_POST, 'endereco');
 $estado = filter_input(INPUT_POST, 'estado');
